@@ -4782,6 +4782,8 @@ def Load_models(pcbThickness,modules):
                                 FreeCAD.ActiveDocument.removeObject(newStep.Name)
                             else: #use Label for timestamp
                                 myReference=str(modules[i][11]).rstrip('"').lstrip('"')
+                                myValue=str(modules[i][14]).rstrip('"').lstrip('"')
+                                myDescr=str(modules[i][15]).rstrip('"').lstrip('"')
                                 myTimeStamp=str(modules[i][10]).rstrip('"').lstrip('"')
                                 if len(myTimeStamp)> 8:
                                     myTimeStamp=myTimeStamp[-12:]
@@ -4792,7 +4794,8 @@ def Load_models(pcbThickness,modules):
                                 else:
                                     myModelNbr = '['+str(myModelNbr)+']'
                                 if '*' not in myReference:
-                                    newStep.Label = myReference + '_'+ impLabel + '_' + myTimeStamp + myModelNbr
+                                    newStep.Label = myReference + '_' + myTimeStamp + myModelNbr
+                                    newStep.Label2 = myValue + ' ' + myDescr
                                 else:
                                     newStep.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
                                 #stop
@@ -4824,7 +4827,8 @@ def Load_models(pcbThickness,modules):
                             newobj = FreeCAD.ActiveDocument.ActiveObject
                             if not use_pypro:
                                 if '*' not in myReference:
-                                    newobj.Label = myReference + '_'+ impLabel + '_' + myTimeStamp + myModelNbr
+                                    newobj.Label = myReference + '_' + '_' + myTimeStamp + myModelNbr
+                                    newobj.Label2 = myValue + ' ' + myDescr
                                 else:
                                     newobj.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
                         ##addProperty mod
@@ -4966,6 +4970,8 @@ def Load_models(pcbThickness,modules):
                                     if len(myTimeStamp)> 8:
                                         myTimeStamp=myTimeStamp[-12:]
                                     myReference=str(modules[i][11]).rstrip('"').lstrip('"')
+                                    myValue=str(modules[i][14]).rstrip('"').lstrip('"')
+                                    myDescr=str(modules[i][15]).rstrip('"').lstrip('"')
                                     myModelNbr=(modules[i][12])
                                     #print (myModelNbr);stop
                                     if myModelNbr == 1:
@@ -4973,8 +4979,8 @@ def Load_models(pcbThickness,modules):
                                     else:
                                         myModelNbr = '['+str(myModelNbr)+']'
                                     if '*' not in myReference:
-                                        impPart.Label = loaded_model_objs[idxO].Label[loaded_model_objs[idxO].Label.find('_')+1:loaded_model_objs[idxO].Label.rfind('_')]
-                                        impPart.Label = myReference + '_' + impPart.Label + '_' + myTimeStamp + myModelNbr
+                                        impPart.Label = myReference + '_' + myTimeStamp + myModelNbr
+                                        impPart.Label2 = myValue + ' ' + myDescr
                                         # loaded_model_objs[idxO].Label
                                     else:
                                         impPart.Label = 'REF_'+loaded_model_objs[idxO].Label[:loaded_model_objs[idxO].Label.rfind('_')] + '_'  + myTimeStamp + myModelNbr
@@ -12653,6 +12659,8 @@ def DrawPCB(mypcb,lyr=None,rmv_container=None,keep_sketch=None):
                             line.append(m.fp_text[0][1]) #fp reference
                         line.append(n_md) #number of models in module
                         line.append(md_hide)
+                        line.append(m.property[1][1]) # Value
+                        line.append(m.property[4][1]) # Description
                         PCB_Models.append(line)
                         n_md+=1
         

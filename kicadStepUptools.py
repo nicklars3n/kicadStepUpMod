@@ -4801,7 +4801,7 @@ def Load_models(pcbThickness,modules):
                                 else:
                                     myModelNbr = '['+str(myModelNbr)+']'
                                 if '*' not in myReference:
-                                    newStep.Label = myReference + '_' + myTimeStamp + myModelNbr
+                                    newStep.Label = myReference + myTimeStamp + myModelNbr
                                     newStep.Label2 = myValue + ' ' + myDescr
                                 else:
                                     newStep.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
@@ -4834,7 +4834,7 @@ def Load_models(pcbThickness,modules):
                             newobj = FreeCAD.ActiveDocument.ActiveObject
                             if not use_pypro:
                                 if '*' not in myReference:
-                                    newobj.Label = myReference + '_' + '_' + myTimeStamp + myModelNbr
+                                    newobj.Label = myReference + myTimeStamp + myModelNbr
                                     newobj.Label2 = myValue + ' ' + myDescr
                                 else:
                                     newobj.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
@@ -4845,7 +4845,7 @@ def Load_models(pcbThickness,modules):
                             #tobefixed
                             if not use_pypro:
                                 if '*' not in myReference:
-                                    newobj.Label = myReference + '_'+ impLabel + '_' + myTimeStamp + myModelNbr
+                                    newobj.Label = myReference + myTimeStamp + myModelNbr
                                 else:
                                     newobj.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
                         else:
@@ -4986,7 +4986,7 @@ def Load_models(pcbThickness,modules):
                                     else:
                                         myModelNbr = '['+str(myModelNbr)+']'
                                     if '*' not in myReference:
-                                        impPart.Label = myReference + '_' + myTimeStamp + myModelNbr
+                                        impPart.Label = myReference + myTimeStamp + myModelNbr
                                         impPart.Label2 = myValue + ' ' + myDescr
                                         # loaded_model_objs[idxO].Label
                                     else:
@@ -5037,6 +5037,7 @@ def Load_models(pcbThickness,modules):
                         #sayw(step_layer);
                         #sayw(str(myPart.Shape.Volume))
                         #sayw(str(myPart.Shape.BoundBox.ZLength))
+                        myReference=str(modules[i][11]).rstrip('"').lstrip('"')
                         if step_layer == 'Top':
                             if full_placement:
                                 ## new placement wip
@@ -5071,11 +5072,12 @@ def Load_models(pcbThickness,modules):
                                 if use_AppPart and not use_LinkGroups: #layer Top    
                                     if impPart.TypeId != 'App::Part':
                                         part = FreeCAD.ActiveDocument.addObject('App::Part','Part')
-                                        part.Label = impPart.Label
+                                        part.Label = myReference
                                         part.Label2 = impPart.Label2
                                         part.addObject(impPart)
                                         FreeCAD.ActiveDocument.getObject(board_name).addObject(part)
                                     else:
+                                        impPart.Label = myReference
                                         FreeCAD.ActiveDocument.getObject(board_name).addObject(impPart)
                                     modelTop_nbr+=1
                                 elif use_LinkGroups:
@@ -5144,11 +5146,12 @@ def Load_models(pcbThickness,modules):
                                 if use_AppPart and not use_LinkGroups: #layer Top                                  
                                     if impPart.TypeId != 'App::Part':
                                         part = FreeCAD.ActiveDocument.addObject('App::Part','Part')
-                                        part.Label = impPart.Label
+                                        part.Label = myReference
                                         part.Label2 = impPart.Label2
                                         part.addObject(impPart)
                                         FreeCAD.ActiveDocument.getObject(board_name).addObject(part)
                                     else:
+                                        impPart.Label = myReference
                                         FreeCAD.ActiveDocument.getObject(board_name).addObject(impPart)
                                     modelBot_nbr+=1
                                 elif use_LinkGroups:

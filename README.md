@@ -21,9 +21,9 @@ KiCad **StepUp tools** are a FreeCAD Macro and a FreeCAD WorkBench to help in **
 - **generate Blender compatible VRML files**
 - **translation infrastructure enabled**
 
-Please see [KiCad Info forum](https://forum.kicad.info/search?q=step) or [FreeCAD forum](https://forum.freecadweb.org/viewtopic.php?f=24&t=14276) to discuss or report issues regarding this Addon.
+Please see [KiCad Info forum](https://forum.kicad.info/search?q=stepup) or [FreeCAD forum](https://forum.freecadweb.org/viewtopic.php?f=24&t=14276) to discuss or report issues regarding this Addon.
 
-![screenshot](https://cdn.hackaday.io/images/7537561443908546062.png)
+![CrazyFlie](images/crazyflie.png)
 
 
 Installing
@@ -38,10 +38,29 @@ StepUp Cheat sheet
 ------------------
 
 [kicad StepUp Cheat sheet](https://github.com/easyw/kicadStepUpMod/raw/master/demo/kicadStepUp-cheat-sheet.pdf)
+[![kicad StepUp Cheat sheet](demo/gifs/pdf-download.png)](https://github.com/easyw/kicadStepUpMod/raw/master/demo/kicadStepUp-cheat-sheet.pdf)
+
+StepUp Videos
+------------------
+
+[ECAD-MCAD-collaboration: Complex Edge Sketch to PCB](https://youtu.be/eMdX3R9ni7g?t=1050)
+[![ECAD-MCAD-collaboration: Complex Edge Sketch to PCB](demo/gifs/StepUp-board-shaping.gif)](https://youtu.be/eMdX3R9ni7g?t=1050)
+
+[ECAD-MCAD-collaboration: Push&Pull Edge to PCB](https://youtu.be/n44iBpu_YjY)
+[![ECAD-MCAD-collaboration: Push&Pull Edge to PCB](demo/gifs/StepUp-getting-to-blinky.gif)](https://youtu.be/n44iBpu_YjY)
+
+[ECAD MCAD Synchronization: Push & Pull model placement in 3D environment](https://youtu.be/6R6UEUScjgA)
+[![ECAD MCAD Synchronization: Push & Pull model placement in 3D environment](demo/gifs/StepUp-ECAD-MCAD-sync.gif)](https://youtu.be/6R6UEUScjgA)
+
+[ECAD-MCAD-collaboration: Footprint in FreeCAD](https://youtu.be/eMdX3R9ni7g?t=843)
+[![ECAD-MCAD-collaboration: Footprint in FreeCAD](demo/gifs/StepUp-3d-model-from-footprint.gif)](https://youtu.be/eMdX3R9ni7g?t=843)
+
+[ECAD-MCAD-collaboration: FreeCAD + KiCAD complete walkthrough design](https://www.youtube.com/watch?v=ov3PpaP9uHI)
+[![ECAD-MCAD-collaboration: FreeCAD + KiCAD complete walkthrough design](demo/gifs/FreeCAD+KiCAD-complete-walkthrough-design.gif)](https://www.youtube.com/watch?v=ov3PpaP9uHI)
 
 ### Requirements
 
-- **FreeCAD** **0.19, 0.20, 0.21, 0.22**
+- **FreeCAD** **0.19, 0.20, 0.21, 0.22, 1.0**
 
 - **KiCAD** **5.1**, **6.x**, **7.x**, **8.x**
 

@@ -4802,7 +4802,7 @@ def Load_models(pcbThickness,modules):
                                     myModelNbr = '['+str(myModelNbr)+']'
                                 if '*' not in myReference:
                                     newStep.Label = myReference + myTimeStamp + myModelNbr
-                                    newStep.Label2 = myValue + ' ' + myDescr
+                                    newStep.Label2 = myDescr
                                 else:
                                     newStep.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
                                 #stop
@@ -4835,7 +4835,7 @@ def Load_models(pcbThickness,modules):
                             if not use_pypro:
                                 if '*' not in myReference:
                                     newobj.Label = myReference + myTimeStamp + myModelNbr
-                                    newobj.Label2 = myValue + ' ' + myDescr
+                                    newobj.Label2 = myDescr
                                 else:
                                     newobj.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
                         ##addProperty mod
@@ -4987,7 +4987,7 @@ def Load_models(pcbThickness,modules):
                                         myModelNbr = '['+str(myModelNbr)+']'
                                     if '*' not in myReference:
                                         impPart.Label = myReference + myTimeStamp + myModelNbr
-                                        impPart.Label2 = myValue + ' ' + myDescr
+                                        impPart.Label2 = myDescr
                                         # loaded_model_objs[idxO].Label
                                     else:
                                         impPart.Label = 'REF_'+loaded_model_objs[idxO].Label[:loaded_model_objs[idxO].Label.rfind('_')] + '_'  + myTimeStamp + myModelNbr

@@ -4834,7 +4834,7 @@ def Load_models(pcbThickness,modules):
                             newobj = FreeCAD.ActiveDocument.ActiveObject
                             if not use_pypro:
                                 if '*' not in myReference:
-                                    newobj.Label = myReference + myTimeStamp + myModelNbr
+                                    newobj.Label = myReference + '_' + myTimeStamp + myModelNbr
                                     newobj.Label2 = myDescr
                                 else:
                                     newobj.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
@@ -4845,7 +4845,7 @@ def Load_models(pcbThickness,modules):
                             #tobefixed
                             if not use_pypro:
                                 if '*' not in myReference:
-                                    newobj.Label = myReference + myTimeStamp + myModelNbr
+                                    newobj.Label = myReference + '_' + myTimeStamp + myModelNbr
                                 else:
                                     newobj.Label = 'REF_'+impLabel + '_'  + myTimeStamp + myModelNbr
                         else:
@@ -4986,7 +4986,7 @@ def Load_models(pcbThickness,modules):
                                     else:
                                         myModelNbr = '['+str(myModelNbr)+']'
                                     if '*' not in myReference:
-                                        impPart.Label = myReference + myTimeStamp + myModelNbr
+                                        impPart.Label = myReference + '_' + myTimeStamp + myModelNbr
                                         impPart.Label2 = myDescr
                                         # loaded_model_objs[idxO].Label
                                     else:
@@ -7107,6 +7107,7 @@ def onLoadBoard(file_name=None,load_models=None,insert=None):
                     # doc.getObject(board_name).addObject(doc.getObject(stepV_name))
                     doc.getObject(board_name).Label=fname
                     doc.getObject(boardG_name).Label = fname.replace('pcba', 'pcb')
+                    doc.getObject(boardG_name).Label2 = 'PCB ' + doc.getObject(boardG_name).Label
                     try:
                         doc.getObject(board_name).License=''
                         doc.getObject(board_name).LicenseURL=''
